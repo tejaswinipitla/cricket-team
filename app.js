@@ -46,7 +46,7 @@ app.get("/players/", async (request, response) => {
   response.send(playersArray.map((eachPlayer) => converting(eachPlayer)));
 });
 
-app.get("/players/:playerId/", async (request.response) => {
+app.get("/players/:playerId/", async (request,response) => {
   const { playerId } = request.params;
   const getPlayerQuery = `
     SELECT * FROM cricket_team WHERE player_id = ${playerId};`;
@@ -69,7 +69,7 @@ app.put("/players/:playerId/", async (request, response) => {
   const updatePlayerQuery = `
     UPDATE cricket_team
     SET 
-    player-name='${playerName}',
+    player_name='${playerName}',
     jersey_number = ${jerseyNumber},
     role = '${role}'
     WHERE player_id = ${playerId};`;
@@ -78,7 +78,7 @@ app.put("/players/:playerId/", async (request, response) => {
   response.send("Player Details Updated");
 });
 
-app.delete("/players/:playerId/", async (request.response) => {
+app.delete("/players/:playerId/", async (request,response) => {
   const { playerId } = request.params;
   const deletePlayerQuery = `
     DELETE FROM cricket_team WHERE player_id = ${playerId};`;
